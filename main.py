@@ -14,6 +14,8 @@ SCKEY = os.environ.get('SCKEY')
 # PUSHPLUS
 Token = os.environ.get('TOKEN')
 def push(content):
+    if not SCKEY:
+        print("SCKEY无效")
     if SCKEY and SCKEY != '1':
         url = f"https://sctapi.ftqq.com/{SCKEY}.send?title=ikuuu签到&desp={content}"
         response = requests.post(url)
